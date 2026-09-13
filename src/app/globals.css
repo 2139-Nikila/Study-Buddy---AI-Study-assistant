@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --ink: #fffaf0;
+  --muted-ink: #b9acc9;
+  --paper: #302541;
+  --paper-deep: #211b30;
+  --lavender: #9274b4;
+  --lavender-dark: #594477;
+  --gold: #e7d6b5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #171326;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(
+      rgba(28, 20, 42, 0.35),
+      rgba(28, 20, 42, 0.35)
+    ),
+    url("/images/study-background.png") center top / cover fixed;
+  color: #fffaf0;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.magical-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(23, 19, 38, 0.35),
+      rgba(23, 19, 38, 0.8)
+    );
+}
+
+.magical-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(143, 108, 184, 0.12),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(197, 155, 88, 0.07),
+      transparent 35%
+    );
+}
+
+.magic-particles,
+.magic-particles::before,
+.magic-particles::after {
+  position: fixed;
+  inset: -20% 0 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(216, 199, 232, 0.5) 0 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(231, 214, 181, 0.5) 0 1px,
+      transparent 1.5px
+    );
+  background-size: 115px 150px, 175px 190px;
+  animation: drift-stars 38s linear infinite;
+  opacity: 0.5;
+}
+
+.magic-particles::before {
+  background-image: none;
+  width: 90px;
+  height: 120px;
+  left: 18%;
+  top: -140px;
+  background: linear-gradient(135deg, #40314f, #2b223c);
+  border: 1px solid rgba(231, 214, 181, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform: rotate(-13deg);
+  animation: falling-paper 24s linear infinite;
+  opacity: 0.5;
+}
+
+.magic-particles::after {
+  background-image: none;
+  width: 70px;
+  height: 95px;
+  left: 72%;
+  top: -130px;
+  background: linear-gradient(135deg, #493958, #2a2039);
+  border: 1px solid rgba(231, 214, 181, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform: rotate(17deg);
+  animation: falling-paper-two 31s linear infinite 5s;
+  opacity: 0.4;
+}
+
+@keyframes falling-paper {
+  0% {
+    transform: translate3d(0, -120px, 0) rotate(-13deg);
+  }
+
+  100% {
+    transform: translate3d(90px, 125vh, 0) rotate(170deg);
+  }
+}
+
+@keyframes falling-paper-two {
+  0% {
+    transform: translate3d(0, -120px, 0) rotate(17deg);
+  }
+
+  100% {
+    transform: translate3d(-110px, 125vh, 0) rotate(-160deg);
+  }
+}
+
+@keyframes drift-stars {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(150px);
+  }
+}
+
+.parchment-card {
+  border: 1px solid rgba(216, 199, 232, 0.13);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(55, 42, 70, 0.98),
+      rgba(43, 33, 58, 0.98)
+    );
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+}
+
+.parchment-card:hover {
+  border-color: rgba(146, 116, 180, 0.55);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+.magic-heading {
+  color: #fffaf0;
+  letter-spacing: -0.035em;
+}
+
+.magic-button {
+  background: linear-gradient(135deg, #9274b4, #624781);
+  color: #fffaf0;
+  box-shadow: 0 7px 18px rgba(98, 71, 129, 0.35);
+}
+
+.magic-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(146, 116, 180, 0.4);
+}
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #887a9a;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(231, 214, 181, 0.8);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-particles,
+  .magic-particles::before,
+  .magic-particles::after,
+  .magic-button {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .magical-shell {
+    overflow-x: hidden;
+  }
+
+  .parchment-card {
+    border-radius: 16px;
+  }
+}
