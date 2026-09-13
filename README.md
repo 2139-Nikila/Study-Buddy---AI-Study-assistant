@@ -1,3 +1,6 @@
+## 🌐 Live Demo
+
+[Open AI Study Assistant](https://study-buddy-ai-study-assistant-five.vercel.app/)
 
 # ✦ Study Buddy - An AI Assistant buddy
 
